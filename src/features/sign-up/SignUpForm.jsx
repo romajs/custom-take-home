@@ -1,4 +1,4 @@
-import { Button, Checkbox, CircularProgress, FormControl, FormControlLabel, FormHelperText, Grid, InputLabel, LinearProgress, MenuItem, Select, TextField, Typography } from '@material-ui/core';
+import { Button, Checkbox, CircularProgress, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@material-ui/core';
 import { Controller, useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -19,7 +19,7 @@ export const SignUpForm = ({ signUp }) => {
   const [isSubmitting, setSubmitting] = useState();
 
   const onValid = data => {
-    console.log('[SignUpForm] onValid:', data);
+    // console.debug('[SignUpForm] onValid:', data);
     setSubmitting(true);
     signUp(data).finally(() => {
       setSubmitting(false);
