@@ -9,7 +9,7 @@ export const SignUpPage = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const signUp = (data) => {
-    // TODO: you should consider providing a POST endpoint for testing
+    // TODO: consider providing a POST endpoint for testing on the next time
     return axios.get(formPostUrl, data).then(response => {
       enqueueSnackbar(response.data.message, { variant: 'success' });
     }).catch(response => {
