@@ -7,10 +7,11 @@ import { css } from '@emotion/css';
 
 export const SignUpForm = ({ signUp }) => {
   const {
-    register,
+    control,
     formState: { errors },
     handleSubmit,
-    control,
+    register,
+    reset,
   } = useForm({
     resolver: yupResolver(signUpValidationSchema),
     mode: 'onBlur',
@@ -19,11 +20,15 @@ export const SignUpForm = ({ signUp }) => {
   const [isSubmitting, setSubmitting] = useState();
 
   const onValid = data => {
-    // console.debug('[SignUpForm] onValid:', data);
+    console.log('[SignUpForm] onValid:', data);
     setSubmitting(true);
     signUp(data).finally(() => {
       setSubmitting(false);
     });
+  };
+
+  const resetForm = () => {
+    reset();
   };
 
   return (
@@ -223,6 +228,7 @@ export const SignUpForm = ({ signUp }) => {
             size="large"
             type="button"
             variant="contained"
+            onClick={resetForm}
           >
             Reset
           </Button>
